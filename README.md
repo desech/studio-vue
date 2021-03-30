@@ -48,20 +48,37 @@ cd /~/user/.config/Electron/plugin/desech-studio-vue
 npm install -g @vue/cli
 npm install
 cd dist
-vue upgrade --next
-  Strict Mode: yes
-  Routing: yes
-  Style: CSS
+vue create my-app
+  Preset: Vue 3
+  Package: NPM
 cd my-app
-ng serve --open
-rm -rf node_modules public package-lock.json
-cd src
-rm -rf assets index.html favicon.ico app/app.component.css app/app.module.ts app/app-routing.module.ts
+npm install vue-router
+vue add router
+  Proceed: yes
+  History: yes
+npm run serve
 ```
 
-- open `vue.json` and replace `"src/assets"` with `"src/asset", "src/font"`
-- open `src/app/app.component.html` and delete everything except `<router-outlet></router-outlet>`
-- open `src/app/app.component.ts` and delete the `styleUrls: ['./app.component.css']` line
+- Cleanup
+
+```sh
+rm -rf node_modules public package-lock.json
+cd src
+rm -rf assets components views router
+```
+
+- open `App.vue` and replace everything with:
+```html
+  <template>
+    <router-view/>
+  </template>
+
+  <script>
+  export default {
+    name: 'App'
+  }
+  </script>
+```
 
 ## Included npm packages
 
@@ -76,4 +93,4 @@ All Desech Studio plugins have access to the following npm libraries, because th
 
 ## Other Documentation
 
-- Go to [vue.io](https://vue.io/guide/setup-local) to read the documentation.
+- Go to [v3.vuejs.org](https://v3.vuejs.org/guide/introduction.html#what-is-vue-js) to read the documentation.
