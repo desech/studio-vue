@@ -15,7 +15,7 @@
 
 ```sh
 npm install
-ng serve --open
+npm run serve
 ```
 
 - Now you can access you vue app at `http://localhost:4200/`
@@ -32,7 +32,6 @@ ng serve --open
 
 ### Tips
 
-- Make sure to name your components as verbose as possible. For example instead of `header` use `page-header` because `header` is an actual html tag, and you might create infinite loops.
 - Anywhere inside text you can write code like `{{user.userId}}` and it will be exported as vue js code.
 
 - That's it. Ignore the rest if you don't plan on doing development on this plugin.
