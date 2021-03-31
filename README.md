@@ -28,7 +28,7 @@ npm run serve
 - Inside Desech Studio there are 2 places where you can add vue attributes/properties:
   - when you click on a component
   - when you click on an html element in the HTML section > Element properties
-- Here you can set any vue specific attributes like `[ngClass]`, `(click)`, `*ngIf`, etc.
+- Here you can set any vue specific attributes like `:title`, `@click`, `v-for`, etc.
 
 ### Tips
 
