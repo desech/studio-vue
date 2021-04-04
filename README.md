@@ -29,6 +29,7 @@ npm run serve
   - when you click on a component
   - when you click on an html element in the HTML section > Element properties
 - Here you can set any vue specific attributes like `:title`, `@click`, `v-for`, etc.
+- If you set a `class` property it will be added to the existing classes set by `Desech Studio`
 
 ### Tips
 
