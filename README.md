@@ -1,4 +1,6 @@
-# Vue plugin for Desech Studio
+# Vue plugin for [Desech Studio](https://www.desech.com/)
+
+[www.desech.com](https://www.desech.com/)
 
 ## Install
 
@@ -94,3 +96,8 @@ All Desech Studio plugins have access to the following npm libraries, because th
 ## Other Documentation
 
 - Go to [v3.vuejs.org](https://v3.vuejs.org/guide/introduction.html#what-is-vue-js) to read the documentation.
+
+
+## Desech Studio website
+
+ - [www.desech.com](https://www.desech.com/)
