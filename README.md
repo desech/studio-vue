@@ -7,7 +7,6 @@
 - In Desech Studio
   - Go to Settings > Plugins > Vue and install it
   - Go to File > Project Settings > Export Code Plugin > set to "Vue"
-- Using a design system works with this plugin, because we copy over all the css/js files.
 
 ## Test the vue app
 
@@ -37,19 +36,26 @@ npm run serve
 
 - Anywhere inside text you can write code like `{{user.userId}}` and it will be exported as vue js code.
 
-- That's it. Ignore the rest if you don't plan on doing development on this plugin.
-
 ## Plugin Development
 
-If you plan on helping out with code or extend this plugin, do the following:
-
-- delete everything in the `dist` folder so we can restart the build process
+- That's it. Ignore the rest if you don't plan on doing development on this plugin.
+- It's also probably best to have `Desech Studio` closed during this step.
+- If you plan on helping out with code or extend this plugin, do the following:
 
 ```sh
-cd /~/user/.config/Electron/plugin/desech-studio-vue
-npm install -g @vue/cli
-npm install
+cd "/home/<username>/.config/Desech Studio/plugin"
+  - this is the plugins folder of `Desech Studio` on Linux
+  - on Mac it's `/home/<username>/Library/Application Support/Desech Studio/plugin`
+  - on Windows it's `C:/Users/<username>/AppData/Desech Studio/plugin`
+rm -rf desech-studio-vue
+  - if you have the vue plugin already install, delete it
+git clone git@github.com:desech/studio-vue.git desech-studio-vue
+  - you might need to use your own fork of this repo on github
+cd desech-studio-vue
+sudo npm install -g @vue/cli
+npm install --force
 cd dist
+rm -rf *
 vue create my-app
   Preset: Vue 3
   Package: NPM
@@ -58,28 +64,24 @@ npm install vue-router
 vue add router
   Proceed: yes
   History: yes
-npm run serve
-```
-
-- Cleanup
-
-```sh
+npx sb init
+- open `.storybook/main.js` and add `staticDirs: ['../public']`
 rm -rf node_modules public package-lock.json
 cd src
-rm -rf assets components views router
+rm -rf assets components views router stories
 ```
 
 - open `App.vue` and replace everything with:
 ```html
-  <template>
-    <router-view/>
-  </template>
+<template>
+  <router-view/>
+</template>
 
-  <script>
-  export default {
-    name: 'App'
-  }
-  </script>
+<script>
+export default {
+  name: 'App'
+}
+</script>
 ```
 
 ## Included npm packages
