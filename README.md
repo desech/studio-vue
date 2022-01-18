@@ -38,18 +38,18 @@ npm run storybook
 
 ## Desech Studio integration
 
-### Vue attributes/properties
-
-- Inside Desech Studio you can add vue attributes/properties in the Programming properties for both elements and components
-- You can set any react specific attributes like `:title`, `@click`, `v-for`, etc.
-
 ### Tips
 
-- Anywhere inside text you can write code like `{{user.userId}}` and it will be exported as vue js code.
-
-### Limitations
-
+- Anchor links need to follow this format `/contact.html` with a backslash at the beginning and an `.html` extension at the end
+  - `<a>` elements are converted to `<router-link>` if the url is a relative one. But if there are overrides on that anchor element then we will keep it as an anchor tag.
+- Anywhere inside text you can write code like `{{user.userId}}` and it will be exported as vue js code. But it's recommended you set data with `state` not manually add it in Desech Studio through text and attributes. This will help the designer to not have to deal with code.
+  - If you add it as a component override, then it will no longer be parsed as code.
+  - We can use the `computed` object, but the overrides are coming from the component parent which has all the data stored as a json. Changing this from strings to actual code will show errors, since we will need those variables set in both the parent component and the child component that has the overrides.
+- Inside Desech Studio you can add vue directives in the Programming properties for both elements and components
+  - You can set any vue specific directives like `:title`, `@click`, `v-for`, etc.
+  - In components, you can't overrides directives like `v-if`, `v-bind:` etc.
 - `Vue` uses the `<template>` tag internally in order to render components. This means that you can't use the `<template>` tag inside Desech Studio.
+- `unrender` uses `v-if` so you can't have both on the same html element.
 
 ## Plugin Development
 
