@@ -10,31 +10,46 @@
 
 ## Test the vue app
 
-- In Desech Studio add an element to the canvas and Save.
+- In Desech Studio add an element and Save.
 - Every time you save, the vue app files will be copied over to the `_export` folder of your desech project.
 - There you can run the following, to test the vue app:
 
 ```sh
-npm install
+npm install --force
+export NODE_OPTIONS=--openssl-legacy-provider # linux / mac os only
+set NODE_OPTIONS=--openssl-legacy-provider # windows only
 npm run serve
 ```
 
-- Now you can access you vue app at `http://localhost:4200/`
+- Now you can access your vue app at `http://localhost:4200/`
 - Every time you save inside Desech Studio, it will push updates to the vue app
+
+## Storybook integration
+
+- Check the [docs](https://storybook.js.org/docs/vue/writing-stories/introduction) for further reading
+
+```sh
+export NODE_OPTIONS=--openssl-legacy-provider # linux / mac os only
+set NODE_OPTIONS=--openssl-legacy-provider # windows only
+npm run storybook
+```
+
+- Check the `_export/src/stories` folder for the actual stories
 
 ## Desech Studio integration
 
 ### Vue attributes/properties
 
-- Inside Desech Studio there are 2 places where you can add vue attributes/properties:
-  - when you click on a component
-  - when you click on an html element in the HTML section > Element properties
-- Here you can set any vue specific attributes like `:title`, `@click`, `v-for`, etc.
-- If you set a `class` property it will be added to the existing classes set by `Desech Studio`
+- Inside Desech Studio you can add vue attributes/properties in the Programming properties for both elements and components
+- You can set any react specific attributes like `:title`, `@click`, `v-for`, etc.
 
 ### Tips
 
 - Anywhere inside text you can write code like `{{user.userId}}` and it will be exported as vue js code.
+
+### Limitations
+
+- `Vue` uses the `<template>` tag internally in order to render components. This means that you can't use the `<template>` tag inside Desech Studio.
 
 ## Plugin Development
 
