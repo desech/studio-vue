@@ -12,6 +12,7 @@
 
 - In Desech Studio add an element and Save.
 - Every time you save, the vue app files will be copied over to the `_export` folder of your desech project.
+- Know that while `Desech Studio` creates new vue component files and only updates the named sections, it will not cleanup components that you have removed/moved/renamed. This also applies to storybook files. You will have to manually remove the unneeded vue files.
 - There you can run the following, to test the vue app:
 
 ```sh
@@ -41,12 +42,11 @@ npm run storybook
 ### Tips
 
 - Anchor links need to follow this format `/contact.html` with a backslash at the beginning and an `.html` extension at the end
-  - `<a>` elements are converted to `<router-link>` if the url is a relative one. But if there are overrides on that anchor element then we will keep it as an anchor tag.
-- Anywhere inside text you can write code like `{{user.userId}}` and it will be exported as vue js code. But it's recommended you set data with `state` not manually add it in Desech Studio through text and attributes. This will help the designer to not have to deal with code.
+  - `<a>` elements are not converted to `<router-link>` because how overrides work. You will have to add your own page history code to the application.
+- Anywhere inside text you can write code like `{{user.userId}}` and it will be exported as vue js code. Element attributes and properties are also converted to code if they are wrapped between curly brackets, ie `{{foo}}`
   - If you add it as a component override, then it will no longer be parsed as code.
-  - We can use the `computed` object, but the overrides are coming from the component parent which has all the data stored as a json. Changing this from strings to actual code will show errors, since we will need those variables set in both the parent component and the child component that has the overrides.
-- Inside Desech Studio you can add vue directives in the Programming properties for both elements and components
-  - You can set any vue specific directives like `:title`, `@click`, `v-for`, etc.
+  - This happens because when dealing with html text, we use `v-html` and this doesn't render js code inside.
+- Inside Desech Studio you can add vue directives in the Programming properties for both elements and components, like `:title`, `@click`, `v-for`, etc.
   - In components, you can't overrides directives like `v-if`, `v-bind:` etc.
 - `Vue` uses the `<template>` tag internally in order to render components. This means that you can't use the `<template>` tag inside Desech Studio.
 - `unrender` uses `v-if` so you can't have both on the same html element.
@@ -98,6 +98,10 @@ export default {
 }
 </script>
 ```
+
+- Now `Desech Studio` will use this git repository for the vue plugin instead of the standard one.
+- Warning: Make sure you don't touch the version in the `package.json` file, because Desech Studio will try to upgrade and it will delete everything and re-download the new version of this plugin.
+  - Only update the version when you git push everything and you are done with development
 
 ## Included npm packages
 
