@@ -51,6 +51,7 @@ npm run storybook
   - Although we do allow any property name, if you use something like `foo$:@{_` and it obviously throws an error in vue, that's on you to handle.
   - In components, you can't overrides directives like `v-if`, `v-bind:` etc.
 - `unrender` uses `v-if`, so you can't have `v-if` of `v-for` with unrendered elements
+- You can't use the the html element `<slot>` because vue uses this internally for component holes.
 
 ## Plugin Development
 
