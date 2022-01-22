@@ -43,13 +43,14 @@ npm run storybook
 
 - Anchor links need to follow this format `/contact.html` with a backslash at the beginning and an `.html` extension at the end
   - `<a>` elements are not converted to `<router-link>` because how overrides work. You will have to add your own page history code to the application.
-- Anywhere inside text you can write code like `{{user.userId}}` and it will be exported as vue js code. Element attributes and properties are also converted to code if they are wrapped between curly brackets, ie `{{foo}}`
+- Anywhere inside text you can write code like `{{user.userId}}` and it will be exported as vue js code. If you don't want that, then add the property [`v-pre`](https://v3.vuejs.org/api/directives.html#v-pre) without a value, to the element.
+  - Element attributes and properties are not converted to code. You need to use properties like [`:foo`](https://v3.vuejs.org/api/directives.html#v-bind) to make sure the value is rendered as code.
   - If you add it as a component override, then it will no longer be parsed as code.
   - This happens because when dealing with html text, we use `v-html` and this doesn't render js code inside.
 - Inside Desech Studio you can add vue directives in the Programming properties for both elements and components, like `:title`, `@click`, `v-for`, etc.
+  - Although we do allow any property name, if you use something like `foo$:@{_` and it obviously throws an error in vue, that's on you to handle.
   - In components, you can't overrides directives like `v-if`, `v-bind:` etc.
-- `Vue` uses the `<template>` tag internally in order to render components. This means that you can't use the `<template>` tag inside Desech Studio.
-- `unrender` uses `v-if` so you shouldn't have both on the same html element.
+- `unrender` uses `v-if`, so you can't have `v-if` of `v-for` with unrendered elements
 
 ## Plugin Development
 

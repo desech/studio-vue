@@ -20,7 +20,9 @@ export default {
   data () {
     // desech - start data block
     // desech - end data block
-    return { d: DS.getDesechData(this, desech) }
+    return {
+      d: DS.getDesechData(this, desech)
+    }
   }
 }
 </script>
