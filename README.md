@@ -49,7 +49,7 @@ npm run storybook
 - Inside Desech Studio you can add vue directives in the Programming properties for both elements and components, like `:title`, `@click`, `v-for`, etc.
   - In components, you can't overrides directives like `v-if`, `v-bind:` etc.
 - `Vue` uses the `<template>` tag internally in order to render components. This means that you can't use the `<template>` tag inside Desech Studio.
-- `unrender` uses `v-if` so you can't have both on the same html element.
+- `unrender` uses `v-if` so you shouldn't have both on the same html element.
 
 ## Plugin Development
 
