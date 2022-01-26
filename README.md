@@ -49,7 +49,8 @@ npm run storybook
   - This happens because when dealing with html text, we use `v-html` and this doesn't render js code inside.
 - Inside Desech Studio you can add vue directives in the Programming properties for both elements and components, like `:title`, `@click`, `v-for`, etc.
   - Although we do allow any property name, if you use something like `foo$:@{_` and it obviously throws an error in vue, that's on you to handle.
-  - In components, you can't overrides directives like `v-if`, `v-bind:` etc.
+  - `v-if`, `v-for` and `:key` can't be overridden
+  - Directives like `:foo` can be overridden, but the value will be seen as text, not code
 - `unrender` uses `v-if`, so you can't have `v-if` of `v-for` with unrendered elements
 - You can't use the the html element `<slot>` because vue uses this internally for component holes.
 
