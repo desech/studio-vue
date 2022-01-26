@@ -83,7 +83,7 @@ vue add router
   Proceed: yes
   History: yes
 npx sb init
-- open `.storybook/main.js` and add `staticDirs: ['../public']`
+- open `.storybook/main.js` and add `"staticDirs": [ "../public" ],`
 rm -rf node_modules public package-lock.json
 cd src
 rm -rf assets components views router stories
