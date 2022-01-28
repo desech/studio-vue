@@ -42,16 +42,16 @@ npm run storybook
 ### Tips
 
 - Anchor links need to follow this format `/contact.html` with a backslash at the beginning and an `.html` extension at the end
-  - `<a>` elements are not converted to `<router-link>` because how overrides work. You will have to add your own page history code to the application.
+  - `<a>` elements are not converted to `<router-link>` because of how overrides work. You will have to add your own page history code to the application.
 - Anywhere inside text you can write code like `{{user.userId}}` and it will be exported as vue js code. If you don't want that, then add the property [`v-pre`](https://v3.vuejs.org/api/directives.html#v-pre) without a value, to the element.
   - Element attributes and properties are not converted to code. You need to use properties like [`:foo`](https://v3.vuejs.org/api/directives.html#v-bind) to make sure the value is rendered as code.
   - If you add it as a component override, then it will no longer be parsed as code.
-  - This happens because when dealing with html text, we use `v-html` and this doesn't render js code inside.
 - Inside Desech Studio you can add vue directives in the Programming properties for both elements and components, like `:title`, `@click`, `v-for`, etc.
   - Although we do allow any property name, if you use something like `foo$:@{_` and it obviously throws an error in vue, that's on you to handle.
-  - `v-if`, `v-for`, `:key`, `v-pre`, `v-cloak` and `v-once` can't be overridden.
-  - Directives can be overridden, but the actual value will be a string, not code.
+  - `v-if`, `v-for`, `v-pre`, `v-cloak` and `v-once` can't be overridden.
+  - Other directives can be overridden, but the actual value will be a string, not code.
   - For `v-text` and `v-html` make sure to use a block element and then set the property value as a variable in the `data()` method
+  - `:class` and `v-bind:class` properties are ignored
 - `unrender` uses `v-if`, so you can't have `v-if` or `v-for` with unrendered elements
 - You can't use the html element `<slot>` because vue uses this internally for component holes.
 
