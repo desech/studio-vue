@@ -49,6 +49,7 @@ npm run storybook
 - Inside Desech Studio you can add vue directives in the Programming properties for both elements and components, like `:title`, `@click`, `v-for`, etc.
   - Although we do allow any property name, if you use something like `foo$:@{_` and it obviously throws an error in vue, that's on you to handle.
   - `v-if`, `v-for`, `v-pre`, `v-cloak` and `v-once` can't be overridden.
+  - If you override the inner html of an element and you also have a `v-if` and `v-for` on it, if the variables set in the declarations are not found anywhere else, than vue will complain about unused variables. That's because when Desech Studio overrides inner html, it moves everything in a variable, so the actual html is no longer visible in the html template.
   - Other directives can be overridden, but the actual value will be a string, not code.
   - For `v-text` and `v-html` make sure to use a block element and then set the property value as a variable in the `data()` method
   - `:class` and `v-bind:class` properties are ignored
