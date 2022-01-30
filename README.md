@@ -66,7 +66,7 @@ npm run storybook
 cd "/home/<username>/.config/Desech Studio/plugin"
   - this is the plugins folder of `Desech Studio` on Linux
   - on Mac it's `/home/<username>/Library/Application Support/Desech Studio/plugin`
-  - on Windows it's `C:/Users/<username>/AppData/Desech Studio/plugin`
+  - on Windows it's `C:/Users/<username>/AppData/Roaming/Desech Studio/plugin`
 rm -rf desech-studio-vue
   - if you have the vue plugin already install, delete it
 git clone git@github.com:desech/studio-vue.git desech-studio-vue
