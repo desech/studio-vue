@@ -1,6 +1,6 @@
 {
   "name": "studio-vue",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Vue Desech Studio Plugin",
   "main": "index.js",
   "repository": {
@@ -26,6 +26,7 @@
     "author": "Desech",
     "category": "exportCode",
     "url": "https://github.com/desech/studio-vue",
-    "autoupdate": true
+    "requires": "2.0.1",
+    "autoUpdate": true
   }
 }
